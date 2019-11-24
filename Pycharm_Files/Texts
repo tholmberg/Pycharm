@@ -1,0 +1,200 @@
+*********************************** Variables ***********************************
+
+# ints, floats, booleans, strings
+# operations we can perform and conversions
+
+# name = value
+
+number_of_friends = 10
+number_of_friends = 15
+
+paycheck = 789.53
+# paycheck = 789
+
+isDoorOpen = False
+isDoorOpen = 5 > 2
+
+first_name = 'Nimish'
+# first_name = None
+
+# assignment, arithmetic, and conditional operations
+
+isDoorClosed = not isDoorOpen
+
+# + - * / % // += -= *= /=
+
+bank_balance = 1000 + paycheck
+# print(5 % 2)
+# print(5 // 2)
+
+number_of_friends += 5
+
+# > >= < <= == !=
+# print(5 != 2)
+# print("a" > "b")
+
+full_name = first_name + " Narang"
+# print(full_name)
+
+year = 2018
+# print(type(year))
+year = '2018'
+# print(type(year))
+
+print(str(isDoorOpen))
+
+*********************************** Collections ***********************************
+
+# Collections: tuples, lists, dictionaries
+# Operations
+
+full_name = ('Nimish', 'Narang')
+other_full_name = ('John', 'Smith')
+
+inventory_item = ('apple', 5)
+
+roster = ['Nimish', 'John', 'Kate', 'Sarah', 'Kevin']
+
+inventory = {'apple': 5, 'knife': 1, 'shoes': 2}
+
+first_name = full_name[0]
+first_person = roster[0]
+apple_quantity = inventory['apple']
+
+full_names = full_name + other_full_name
+# del full_name
+# print(len(full_names))
+# print(min(full_names))
+# print(max(full_names))
+
+roster[0] = 'Adam'
+# del roster[0]
+# roster.clear()
+# removed_value = roster.pop(0)
+roster.append('Nimish')
+# print(roster)
+
+inventory['knife'] = 5
+print(inventory)
+
+*********************************** Control Flow ***********************************
+
+# Control flow intro
+# If statements
+# While and for loops
+
+# if condition to test:
+#   code to execute if test passes
+
+# bank_balance = 100.00
+# item_cost = 100.00
+# item_inventory = 0
+#
+# if item_cost < bank_balance and item_inventory >= 1:
+#     bank_balance -= item_cost
+#     print("transaction successful")
+#     print(bank_balance)
+# elif item_cost == bank_balance and item_inventory >= 1:
+#     bank_balance -= item_cost
+#     print("transaction successful, but no funds left")
+#     print(bank_balance)
+# else:
+#     if item_inventory < 1:
+#         print("not enough inventory")
+#     else:
+#         print("transaction failed, insufficient funds")
+#     print(bank_balance)
+
+# While and for loops
+
+# while condition:
+#   execute code as long as condition is still true
+
+total = 0
+index = 1
+while index <= 10:
+    if index % 2 == 0:
+        index += 1
+        continue
+    total += index
+    index += 1
+
+roster = ['Nimish', 'John', 'Jane', 'Alex', 'Sam']
+for name in roster:
+    print(name)
+
+for i in range(3):
+    print(roster[i])
+
+*********************************** Functions ***********************************
+
+# Functions, parameters, return values
+
+# def name(parameters):
+#   function body, code to execute
+#   return statements
+
+starting_position = 5
+# position = 5
+
+
+# def move_player(by_amount):
+#     global position
+#     position += by_amount
+
+
+# def move_player(by_amount):
+#     global starting_position
+#     position = starting_position + by_amount
+#     return position
+
+
+def move_player(current_position, by_amount):
+    return current_position + by_amount
+
+
+print(starting_position)
+new_position = move_player(starting_position, 2)
+print(new_position)
+new_position = move_player(new_position, -5)
+print(new_position)
+print("difference between start and end is", starting_position - new_position)
+
+*********************************** Classes and Objects ***********************************
+
+# Classes and objects
+
+
+class GameCharacter:
+
+    # attributes here
+    name = ''
+    health = 100
+    position = 0
+
+    # initializer
+    def __init__(self, name, position):
+        self.name = name
+        self.position = position
+
+    # behaviours
+    def move_by(self, amount):
+        self.position += amount
+
+    def heal_self(self, by_amount):
+        self.health += by_amount
+        if self.health > 100:
+            self.health = 100
+
+
+new_character = GameCharacter('Nimish', 10)
+print(new_character)
+print(new_character.name)
+print(new_character.health)
+print(new_character.position)
+
+new_character.move_by(10)
+print(new_character.position)
+new_character.health = 80
+new_character.heal_self(40)
+print(new_character.health)
